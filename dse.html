@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.0/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script>
+  <script>
+    function init() {
+      var map = L.map('mapcontainer', { zoomControl: false });
+      var mpoint = [34.80844904503614, 137.793838375348];
+      map.setView(mpoint, 10);
+      L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+      }).addTo(map);
+      //ポップアップする文字（HTML可、ここでは画像を表示）TEL<br>
+   
+        //二橋染工場
+        var sucontents = "二橋染工場<br>浜松市中区常磐町138-14<br>TEL053-452-2686<br>営業時間：9：00~10：00, 10：30~11：30, 3：00~14：00, 14：30~15：30<br>定休日：土日<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2wlGtko_MkkE7IZC6I_CkNpgX8VGdHn3ygg&usqp=CAU' width='300' height='250'>"
+        var popup1 = L.popup({ maxWidth: 300 }).setContent(sucontents);
+
+        //あかね屋
+       var sucontents = "あかね屋<br>静岡県浜松市中区中島2-15-1<br>TEL050-3568-3856<br>営業時間：9：00~18：00<br>定休日：不定休<img src='https://iiranavi.net/images/A00000050.jpg?1446619200' width='250' height='250'>"
+       var popup2 = L.popup({ maxWidth: 250 }).setContent(sucontents);
+
+        //小崎葛布工芸
+       var sucontents = "小崎葛布工芸<br>静岡県掛川市城下3-4<br>TEL0537-24-2222<br>営業時間：9：00~17：00　日曜.祝日10：00~17：00<br>定休日：火<img src='http://kuzufu.sakura.ne.jp/wp/wp-content/uploads/2021/02/IMG_0706.jpg' width='300' height='250'>"
+       var popup3 = L.popup({ maxWidth: 300 }).setContent(sucontents);
+
+        //静邨陶房
+       var sucontents = "静邨陶房<br>TEL0538-85-3536<br>周智郡森町森1759-<br>営業時間：9:00~17:00<br>定休日：不定休<br><img src='https://image.jimcdn.com/app/cms/image/transf/dimension=682x2048:format=jpg/path/sf736c3200ecf8e6f/image/ied3dd4fd383e8de7/version/1466208243/image.jpg' width='250' height='250'>"
+       var popup4 = L.popup({ maxWidth: 300 }).setContent(sucontents);
+
+       //和田染工
+       var sucontents = "和田染工<br>TEL053-461-1883<br>静岡県浜松市東区将監町３８−３<br>営業時間：9：00~17：00　<br>定休日：土日<br><img src='https://www.hamamatsu-mononavi.jp/uploads/company/ea06e5a374140e36ea9d53ca561b9a5a94c31029.jpg' width='250' height='250'>"
+       var popup5 = L.popup({ maxWidth: 300 }).setContent(sucontents);
+   
+     
+
+
+        L.marker([34.7119095512111, 137.732991632027]).bindPopup(popup1).bindTooltip("二橋染工場").addTo(map);
+
+       L.marker([34.7007917889414, 137.748181932562]).bindPopup(popup2).bindTooltip("あかね屋").addTo(map);
+
+       L.marker([34.7739954956442, 138.014737232472]).bindPopup(popup3).bindTooltip("小崎葛布工芸").addTo(map);
+
+      L.marker([34.8334716960255, 137.920971103102]).bindPopup(popup4).bindTooltip("静邨陶房").addTo(map);
+
+       L.marker([34.7134027637857, 137.757332245432]).bindPopup(popup5).bindTooltip("和田染工").addTo(map);
+
+     
+    }
+  </script>
+</head>
+  <body>
+
+<body onload="init()">
+
+  <div id="mapcontainer" style="position:absolute;top:0;left:0;right:0;bottom:0;"></div>
+</body>
+
+</html>

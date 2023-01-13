@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.0/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script>
+  <script>
+    function init() {
+      var map = L.map('mapcontainer', { zoomControl: false });
+      var mpoint = [35.007241,138.364048];
+      map.setView(mpoint, 9);
+      L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+      }).addTo(map);
+      //ポップアップする文字（HTML可、ここでは画像を表示）
+   
+        //雅正庵焼津西小川店
+        var sucontents = "雅正庵焼津西小川店<br>TEL054-620-7800<br>静岡県焼津市西小川6丁目5-1<br>営業時間：10:00~18:30<br>定休日：不定休<br><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSriatVjoOAQ8HoaxtMOPoQ7ive7lvZRYT5vw&usqp=CAU' width='350' height='250'>"
+        var popup1 = L.popup({ maxWidth: 350 }).setContent(sucontents);
+
+        //清水屋
+       var sucontents = "雅正庵焼津西小川店<br>TEL054-620-7800<br>静岡県焼津市西小川6丁目5-1<br>営業時間：8:30~18:30　水曜 日曜18:00まで<br>定休日：不定休<br><img src='https://www.komanjyuu.jp/pic-labo/top_toriyose_02.jpg' width='350' height='250'>"
+       var popup2 = L.popup({ maxWidth: 350 }).setContent(sucontents);
+
+        //菓子処 三浦
+       var sucontents = "三浦製菓 菓子処 三浦<br>TEL0547-53-2073<br>静岡県島田市川根町家山717-5<br>営業時間：8:30~17:30<br>定休日：水曜日<br><img src='https://img21.shop-pro.jp/PA01370/417/etc/top_good_img5.jpg?cmsp_timestamp=202707115454' width='350' height='250'>"
+       var popup3 = L.popup({ maxWidth: 350 }).setContent(sucontents);
+
+       //菓子処 叶家
+       var sucontents = "三浦製菓 菓子処 叶家<br>TEL0547-45-2839<br> 静岡県島田市金谷東1丁目1045-3<br>営業時間：9:00~18:00<br>定休日：水曜日<br><img src='https://img21.shop-pro.jp/PA01370/417/etc/side_bnn_4_3.jpg?cmsp_timestamp=202708170126 width='350' height='350'>"
+       var popup4 = L.popup({ maxWidth: 350 }).setContent(sucontents);
+
+       //こっこ庵
+       var sucontents = "こっこ庵<br>TEL054-281-9336<br>静岡県静岡市駿河区中原696-1<br>営業時間：10:00~17:00<br>定休日：水曜日<br><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtYRqbLI17Bz_Uvd16ISTgCuXNHLeyU75pLQ&usqp=CAU' width='350' height='250'>"
+       var popup5 = L.popup({ maxWidth: 350 }).setContent(sucontents);
+   
+
+
+
+        L.marker([34.89336327896302, 138.2974826195134]).bindPopup(popup1).bindTooltip("雅正庵焼津西小川店").addTo(map);
+
+       L.marker([34.83507367561267, 138.17352405895355]).bindPopup(popup2).bindTooltip("清水屋").addTo(map);
+
+       L.marker([34.947616063769644, 138.07536428096844]).bindPopup(popup3).bindTooltip("菓子処 三浦").addTo(map);
+
+       L.marker([34.83066146567668, 138.13647729792473]).bindPopup(popup4).bindTooltip("菓子処 叶家").addTo(map);
+
+       L.marker([34.954855847632274, 138.38745766138635]).bindPopup(popup5).bindTooltip("こっこ庵").addTo(map);
+
+      
+    }
+  </script>
+</head>
+  <body>
+
+<body onload="init()">
+
+  <div id="mapcontainer" style="position:absolute;top:0;left:0;right:0;bottom:0;"></div>
+</body>
+
+</html>
