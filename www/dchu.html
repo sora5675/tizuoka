@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.0/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script>
+  <script>
+    function init() {
+      var map = L.map('mapcontainer', { zoomControl: false });
+      var mpoint = [35.007241,138.364048];
+      map.setView(mpoint, 10);
+      L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+      }).addTo(map);
+      //ポップアップする文字（HTML可、ここでは画像を表示）<br>TEL
+   
+        //駿府楽市
+        var sucontents = "駿府楽市<br>TEL054-251-1147<br>静岡市葵区黒金町47 アスティ静岡 西館<br>営業時間：9：00～21：00<br>定休日：不定休<br><img src='https://www.sunpurakuichi.co.jp/rakuichi/etc/rakuichi.facade2.JPG' width='350' height='250'>"
+        var popup1 = L.popup({ maxWidth: 350 }).setContent(sucontents);
+
+        //岸本挽物
+       var sucontents = "岸本挽物<br>サイトURL　https://kisshiandbu.chu.jp<br>静岡市清水区入江１丁目16-12<br>営業時間 10：00-17：00<br>定休日：土日祝<br><img src='http://kisshiandbu.chu.jp/wp-content/uploads/2020/05/%E5%B2%B8%E6%9C%AC%E6%8C%BD%E7%89%A9%E8%A3%BD%E4%BD%9C%E6%89%80_%E5%B2%B8%E6%9C%AC%E7%9C%9F%E7%B4%80.jpg' width='300' height='250'>"
+       var popup2 = L.popup({ maxWidth: 300 }).setContent(sucontents);
+
+        
+
+       //静岡竹工芸協同組合
+       var sucontents = "静岡竹工芸協同組合<br>TEL054-252-4924<br>静岡市葵区五番町3-11<br>静岡特産工業協会は、地場産業における横断的組織として、昭和４６年８月１２日に発足し、めまぐるしく変化する経済社会環境の中で、業界の発展のために技術の伝承、人材育成、特産品のＰＲ等を始めとして、地域産業が直面する諸問題に対し、積極的に取り組むなど静岡の産業界の中核的組織としての役割を担ってます。<br><img src='https://www.shizuokajibasan.com/application/files/7214/8269/1496/takezaiku_.png' width='250' height='250'>"
+       var popup4 = L.popup({ maxWidth: 350 }).setContent(sucontents);
+   
+       //遠州志戸呂利陶窯
+       var sucontents = "遠州志戸呂利陶窯<br>TEL0547-45-3858<br>島田市横岡579-3<br>営業時間：10:00~17:00<br>定休日：不定休<br><img src='https://cdn-mapple.net/Normal/%E9%9D%99%E5%B2%A1%E7%9C%8C/22010566_3543_1.jpg' width='250' height='250'>"
+       var popup6 = L.popup({ maxWidth: 300 }).setContent(sucontents);
+   
+        //駿河塗下駄工房佐野
+        var sucontents = "駿河塗下駄工房佐野<br>TEL054-253-4917<br>静岡市葵区清閑町9-22<br><img src=https://www.bs-asahi.co.jp/wp-content/uploads/sites/5/2017/11/prg190_02.jpg' width='250' height='250'>"
+        var popup7 = L.popup({ maxWidth: 300 }).setContent(sucontents);
+
+     
+
+
+        L.marker([34.9829820480993, 138.319819217345]).bindPopup(popup1).bindTooltip("駿府楽市").addTo(map);
+
+       L.marker([35.0198465820754,138.478192525483]).bindPopup(popup2).bindTooltip("岸本挽物").addTo(map);
+
+
+
+       L.marker([34.973181, 138.372179 ]).bindPopup(popup4).bindTooltip("静岡竹工芸協同組合").addTo(map);
+
+
+
+        L.marker([34.8573043010127,138.115669974895]).bindPopup(popup6).bindTooltip("遠州志戸呂利陶窯").addTo(map);
+
+        L.marker([34.96578223968362, 138.37744961976807]).bindPopup(popup7).bindTooltip("駿河塗下駄工房佐野").addTo(map);
+
+     
+
+    }
+  </script>
+</head>
+  <body>
+
+<body onload="init()">
+
+  <div id="mapcontainer" style="position:absolute;top:0;left:0;right:0;bottom:0;"></div>
+</body>
+
+</html>

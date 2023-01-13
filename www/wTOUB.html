@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.0/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script>
+  <script>
+    function init() {
+      var map = L.map('mapcontainer', { zoomControl: false });
+      var mpoint = [34.933457,  138.951497];
+      map.setView(mpoint, 9);
+      L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+      }).addTo(map);
+      //ポップアップする文字（HTML可、ここでは画像を表示）
+   
+        //石舟庵　本社
+        var sucontents = "石舟庵 本社<br>TEL0557-38-3500<br>静岡県伊東市荻549-6<br>営業時間：8:30~18:00<br>定休日：無休<br><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE58_eGqnAbus1zIubHxcHTHriKAQ1QXIfqQ&usqp=CAU' width='350' height='250'>"
+        var popup1 = L.popup({ maxWidth: 350 }).setContent(sucontents);
+
+        //石舟庵　川奈店
+       var sucontents = "石舟庵　川奈店<br>TEL0557-44-1800<br>静岡県伊東市川奈1255-90<br>営業時間：9:30~17:30<br> 定休日：無休<img src='https://lh3.googleusercontent.com/p/AF1QipObEwqjMmMCpb-cLhBgHX5y3v7tjR1Y0bgENqeK=s680-w680-h510' width='250' height='250'>"
+       var popup2 = L.popup({ maxWidth: 250 }).setContent(sucontents);
+
+       //石舟庵　伊東駅店
+        var sucontents = "石舟庵 伊東駅店<br>TEL0557-38-3000<br>静岡県伊東市湯川3-12-1<br>営業時間：9:00~18:00<br>定休日：無休<br><img src='https://loco-pctr.c.yimg.jp/L1nT0Ke8h94Ofz4d8DOMV8i56SkP1DLoQV-fLBzXXF0d8r7xhveovYIqeYyG1L2mheIWnyGHPT4JFPxlrakai94Ao9nMreSAnsHFz9FxHkS6Ec4imM7n1HFRhHc8qLRiYDJ_ZrTiuMju2K2KTaiiy-doLOhjyE5PyODMkv5fbf2F-vD8nizKX3JALZQY4rmQ' width='350' height='250'>"
+        var popup3 = L.popup({ maxWidth: 350 }).setContent(sucontents);
+
+        //石舟庵　デュオ店
+        var sucontents = "石舟庵 デュオ店<br>TEL0557-38-0125<br>静岡県伊東市湯川4-13-1<br>営業時間：9:30~19:00<br>定休日：無休<br><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFyoNZnozSaAKXPNgwoVz15r4PtYUWly1RXA&usqp=CAU' width='350' height='250'>"
+        var popup4 = L.popup({ maxWidth: 350 }).setContent(sucontents);
+
+      //石舟庵　湯川本店
+        var sucontents = "石舟庵　湯川本店<br>TEL0557-36-2313<br>静岡県伊東市玖須美元和田720-3<br>営業時間：8:30~17:00<br>定休日：無休<br><img src='https://livedoor.blogimg.jp/krch55/imgs/7/3/7394d834.jpg' width='350' height='250'>"
+        var popup5 = L.popup({ maxWidth: 350 }).setContent(sucontents);
+
+       //株式会社田子の月
+       var sucontents = "株式会社田子の月<br>TEL0545-63-6001<br>静岡県富士市青葉町40　<br>営業時間：8:00~17:00<br>定休日：無休<br><img src='https://tagonotsuki.co.jp/_src/64360014/img20220308103034345395.webp?v=1658557391622' width='350' height='250'>"
+       var popup6 = L.popup({ maxWidth: 350 }).setContent(sucontents);
+   
+        //田子の月　本店
+        var sucontents = "田子の月　本店<br>TEL0545-52-0001<br>静岡県富士市今泉380-1<br>営業時間：9:00~19:00<br>定休日：無休<br><img src='https://tagonotsuki.co.jp/_src/46188937/teiban2.webp?v=1658557391622' width='350' height='250'>"
+        var popup7 = L.popup({ maxWidth: 350 }).setContent(sucontents);
+
+        //株式会社フジノネ
+        var sucontents ="株式会社フジノネ<br>TEL0557-68-3121<br>静岡県熱海市下多賀777番地<br>営業時間：8:30~17:30<br>定休日：無休<br><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcshYKnLhXa7hVnLu4rATCSQBF5Lsaa5VZXQ&usqp=CAU' width='350' height='250'>"
+        var popup8 = L.popup({ maxWidth: 350 }).setContent(sucontents);
+
+        //株式会社市川製茶
+        var sucontents = "株式会社市川製茶<br>TEL0557-37-4056<br>静岡県伊東市湯田町2-12<br>営業時間：8:30~17:30<br>定休日：日曜日<br><img src='https://thumbnail.image.rakuten.co.jp/@0_mall/ujihara/cabinet/gurishin2.jpg?_ex=200x200&s=0&r=1' width='250' height='450'>"
+        var popup9 = L.popup({ maxWidth: 450 }).setContent(sucontents);
+
+
+
+        L.marker([34.933987749764526, 139.09599798179613]).bindPopup(popup1).bindTooltip("石舟庵　本社").addTo(map);
+
+       L.marker([34.95468862252806, 139.11607511247965]).bindPopup(popup2).bindTooltip("石舟庵　川奈店").addTo(map);
+
+       L.marker([34.97613454998481, 139.09277046661208]).bindPopup(popup3).bindTooltip("石舟庵　伊東駅店").addTo(map);
+
+       L.marker([34.94888121481575, 139.11472923946738]).bindPopup(popup4).bindTooltip("石舟庵　デュオ店").addTo(map);
+
+       L.marker([34.97988993180487, 139.09309813946805]).bindPopup(popup5).bindTooltip("石舟庵　湯川本店").addTo(map);
+
+        L.marker([35.16117594626046, 138.70105828408245]).bindPopup(popup6).bindTooltip("株式会社田子の月").addTo(map);
+
+        L.marker([35.15965140784367, 138.66291455666237]).bindPopup(popup7).bindTooltip("田子の月　本店").addTo(map);
+
+        L.marker([35.04835968047314, 139.0719338781044]).bindPopup(popup8).bindTooltip("株式会社フジノネ").addTo(map);
+
+        L.marker([34.9644469593453, 139.0965516413153]).bindPopup(popup9).bindTooltip("株式会社市川製茶").addTo(map);
+
+       
+
+    }
+  </script>
+</head>
+  <body>
+
+<body onload="init()">
+
+  <div id="mapcontainer" style="position:absolute;top:0;left:0;right:0;bottom:0;"></div>
+</body>
+
+</html>
