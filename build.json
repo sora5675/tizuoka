@@ -1,0 +1,10 @@
+{
+    "ios": {
+        "debug": {
+            "buildFlag": null
+        },
+        "release": {
+            "buildFlag": null
+        }
+    }
+}
